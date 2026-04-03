@@ -9,10 +9,10 @@
 
 ---
 
-## 👥 Contributors
+<!--## 👥 Contributors
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- markdownlint-disable -->
+ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- markdownlint-disable
 <table>
   <tbody>
     <tr>
@@ -22,7 +22,7 @@
     </tr>
   </tbody>
 </table>
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+ ALL-CONTRIBUTORS-LIST:END -->
 
 ---
 
