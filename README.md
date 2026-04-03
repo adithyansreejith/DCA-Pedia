@@ -8,6 +8,18 @@
 - **Integrated MCA**: Integrated Master of Computer Applications
 
 ---
+<p align="center">
+  <img src="" alt="SFI-DCA Logo" width="180"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
+  <img src="https://img.shields.io/badge/Maintained-Yes-blue" />
+  <img src="https://img.shields.io/badge/Structure-Branch%20Wise-orange" />
+  <img src="https://img.shields.io/badge/Purpose-Educational-lightgrey" />
+</p>
+
+---
 
 <!--## 👥 Contributors
 
@@ -24,7 +36,7 @@ ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 </table>
  ALL-CONTRIBUTORS-LIST:END -->
 
----
+
 
 ## 🛠 Developed By
 This project is developed and maintained by **SFI DCA SUB COMMITTEE**.
