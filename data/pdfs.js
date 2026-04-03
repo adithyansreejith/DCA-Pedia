@@ -5,23 +5,33 @@ const pdfData = {
         "folder": "Msc AI-DS",
         "files": [
             {
-                "name": "Algorithms.pdf",
+                "name": "Algorithms-QnBank.pdf",
                 "size": "2.93 MB",
                 "date": "2026-04-03"
             },
             {
-                "name": "DataStructures.pdf",
+                "name": "DataStructures-QnBank.pdf",
                 "size": "16.69 MB",
                 "date": "2026-04-03"
             },
             {
-                "name": "DBMS.pdf",
+                "name": "DBMS-QnBank.pdf",
                 "size": "13.74 MB",
                 "date": "2026-04-03"
             },
             {
-                "name": "OperatingSystems.pdf",
+                "name": "OperatingSystems-QnBank.pdf",
                 "size": "14.52 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ-24.pdf",
+                "size": "881.11 KB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ-25.pdf",
+                "size": "972.18 KB",
                 "date": "2026-04-03"
             }
         ]
@@ -33,7 +43,22 @@ const pdfData = {
         "files": [
             {
                 "name": "Maths_Basics.pdf",
-                "size": "2.98 MB",
+                "size": "3.02 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ-23.pdf",
+                "size": "1.04 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ-24.pdf",
+                "size": "1022.39 KB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ-25.pdf",
+                "size": "941.65 KB",
                 "date": "2026-04-03"
             }
         ]
