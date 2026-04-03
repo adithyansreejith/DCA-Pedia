@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+    </script>
 </head>
 <body class="program-page">
     <header>
@@ -17,11 +23,14 @@
                 <i data-lucide="folder-search" class="logo-icon"></i>
                 <h1>DCA<span>Pedia</span></h1>
             </a>
-            <nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
                 <a href="https://github.com" target="_blank" class="github-link">
                     <i data-lucide="github"></i>
                 </a>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -33,6 +42,11 @@
                 </a>
                 <h2 id="program-title">Loading...</h2>
                 <p id="program-desc">Please wait while we fetch the resources.</p>
+                
+                <div class="search-container" style="margin-top: 1.5rem; text-align: left; max-width: 100%;">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="file-search" class="search-input" placeholder="Search files in this section...">
+                </div>
             </div>
         </div>
 
@@ -57,11 +71,76 @@
 
     <script src="data/pdfs.js"></script>
     <script>
-        function renderFiles() {
-            // Get program ID from the URL filename (e.g., mca.html -> mca)
+        let currentFiles = [];
+
+        function isNew(dateStr) {
+            const uploadDate = new Date(dateStr);
+            const today = new Date();
+            const diffTime = Math.abs(today - uploadDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 7;
+        }
+
+        function updateThemeUI() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+                if (window.lucide) lucide.createIcons();
+            }
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            if (newTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', newTheme);
+            updateThemeUI();
+        });
+
+        function renderFiles(filter = '') {
+            const fileList = document.getElementById('file-list');
+            const filteredFiles = currentFiles.filter(file => 
+                file.name.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            if (filteredFiles.length === 0) {
+                fileList.innerHTML = '';
+                document.getElementById('no-files').style.display = 'block';
+                document.getElementById('no-files').querySelector('p').textContent = filter ? `No matches found for "${filter}"` : 'No PDFs found in this section yet.';
+                return;
+            }
+
+            document.getElementById('no-files').style.display = 'none';
+            fileList.innerHTML = filteredFiles.map(file => `
+                <a href="static/pdfs/${window.programFolder}/${file.name}" class="file-item" target="_blank">
+                    <div class="file-icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <div class="file-info">
+                        <span class="file-name">
+                            ${file.name}
+                            ${isNew(file.date) ? '<span class="badge-new">New</span>' : ''}
+                        </span>
+                        <span class="file-meta">${file.size} • Uploaded on ${file.date}</span>
+                    </div>
+                    <div class="download-icon">
+                        <i data-lucide="download"></i>
+                    </div>
+                </a>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateThemeUI();
+            
             const path = window.location.pathname;
             const filename = path.split('/').pop().replace('.html', '');
-            
             const program = pdfData[filename];
             
             if (!program) {
@@ -73,34 +152,15 @@
             document.getElementById('program-title').textContent = program.title;
             document.getElementById('program-desc').textContent = program.description;
             document.title = `${program.title} | DCA-Pedia`;
+            window.programFolder = program.folder;
+            currentFiles = program.files || [];
 
-            const fileList = document.getElementById('file-list');
-            
-            if (!program.files || program.files.length === 0) {
-                fileList.style.display = 'none';
-                document.getElementById('no-files').style.display = 'block';
-                return;
-            }
+            renderFiles();
 
-            fileList.innerHTML = program.files.map(file => `
-                <a href="static/pdfs/${program.folder}/${file.name}" class="file-item" target="_blank">
-                    <div class="file-icon">
-                        <i data-lucide="file-text"></i>
-                    </div>
-                    <div class="file-info">
-                        <span class="file-name">${file.name}</span>
-                        <span class="file-meta">${file.size} • Uploaded on ${file.date}</span>
-                    </div>
-                    <div class="download-icon">
-                        <i data-lucide="download"></i>
-                    </div>
-                </a>
-            `).join('');
-
-            lucide.createIcons();
-        }
-
-        document.addEventListener('DOMContentLoaded', renderFiles);
+            document.getElementById('file-search').addEventListener('input', (e) => {
+                renderFiles(e.target.value);
+            });
+        });
     </script>
 </body>
 </html>
