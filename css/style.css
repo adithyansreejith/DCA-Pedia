@@ -1,17 +1,19 @@
 :root {
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --bg-main: #f8fafc;
-    --text-main: #1e293b;
-    --text-light: #64748b;
+    --primary: #dc2626; /* Vibrant Red */
+    --primary-hover: #b91c1c; /* Darker Red */
+    --accent: #facc15; /* Bright Yellow */
+    --bg-main: #ffffff; /* White Background */
+    --bg-alt: #fffbeb; /* Very Light Yellow/Cream for background alt */
+    --text-main: #111827;
+    --text-light: #4b5563;
     --card-bg: #ffffff;
-    --card-border: #e2e8f0;
-    --icon-blue-bg: #eff6ff;
-    --icon-blue: #3b82f6;
-    --icon-purple-bg: #f5f3ff;
-    --icon-purple: #8b5cf6;
-    --icon-orange-bg: #fff7ed;
-    --icon-orange: #f97316;
+    --card-border: #f3f4f6;
+    --icon-red-bg: #fee2e2;
+    --icon-red: #dc2626;
+    --icon-yellow-bg: #fef9c3;
+    --icon-yellow: #ca8a04;
+    --icon-orange-bg: #ffedd5;
+    --icon-orange: #ea580c;
 }
 
 * {
@@ -35,7 +37,7 @@ body {
 
 header {
     background-color: #fff;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 2px solid var(--primary); /* Red border for header */
     padding: 1rem 0;
 }
 
@@ -67,9 +69,19 @@ header .container {
     color: var(--primary);
 }
 
+.github-link {
+    color: var(--text-light);
+    transition: color 0.2s;
+}
+
+.github-link:hover {
+    color: var(--primary);
+}
+
 .hero {
     padding: 4rem 0 3rem;
     text-align: center;
+    background: linear-gradient(to bottom, #fff5f5, #ffffff); /* Light red gradient */
 }
 
 .hero h2 {
@@ -77,6 +89,7 @@ header .container {
     font-weight: 800;
     margin-bottom: 1rem;
     letter-spacing: -0.05em;
+    color: var(--text-main);
 }
 
 .hero p {
@@ -103,15 +116,16 @@ header .container {
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary);
+    box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.1); /* Red shadow */
+    border-color: var(--accent); /* Yellow border on hover */
 }
 
 .card-icon {
@@ -124,8 +138,9 @@ header .container {
     margin-bottom: 1.25rem;
 }
 
-.card-icon.blue { background-color: var(--icon-blue-bg); color: var(--icon-blue); }
-.card-icon.purple { background-color: var(--icon-purple-bg); color: var(--icon-purple); }
+/* Card Icons with Red/Yellow/Orange theme */
+.card-icon.blue { background-color: var(--icon-red-bg); color: var(--icon-red); } /* Reused blue class for red */
+.card-icon.purple { background-color: var(--icon-yellow-bg); color: var(--icon-yellow); } /* Reused purple class for yellow */
 .card-icon.orange { background-color: var(--icon-orange-bg); color: var(--icon-orange); }
 
 .card-content h3 {
@@ -184,6 +199,7 @@ header .container {
 
 .file-list-container {
     padding: 3rem 0;
+    background-color: #fffaf0; /* Light yellow tint */
 }
 
 .file-list {
@@ -191,6 +207,7 @@ header .container {
     border: 1px solid var(--card-border);
     border-radius: 1rem;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .file-item {
@@ -208,13 +225,13 @@ header .container {
 }
 
 .file-item:hover {
-    background-color: var(--bg-main);
+    background-color: var(--icon-red-bg); /* Light red on hover */
 }
 
 .file-icon {
     width: 40px;
     height: 40px;
-    color: #ef4444; /* PDF red */
+    color: var(--primary); /* PDF Red */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,6 +256,10 @@ header .container {
     color: var(--text-light);
 }
 
+.file-item:hover .download-icon {
+    color: var(--primary);
+}
+
 footer {
     padding: 3rem 0;
     text-align: center;
@@ -246,6 +267,11 @@ footer {
     margin-top: auto;
     color: var(--text-light);
     font-size: 0.9rem;
+    background-color: #fef2f2; /* Very light red footer */
+}
+
+footer b {
+    color: var(--primary);
 }
 
 @media (max-width: 640px) {
