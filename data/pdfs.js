@@ -30,7 +30,13 @@ const pdfData = {
         "title": "MCA Resources",
         "description": "Master of Computer Applications",
         "folder": "MCA",
-        "files": []
+        "files": [
+            {
+                "name": "Maths_Basics.pdf",
+                "size": "2.98 MB",
+                "date": "2026-04-03"
+            }
+        ]
     },
     "integrated-mca": {
         "title": "Integrated MCA Resources",
