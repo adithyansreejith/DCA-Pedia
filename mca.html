@@ -10,9 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        (function() {
+            const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
     </script>
 </head>
 <body class="program-page">
@@ -23,7 +24,7 @@
                 <h1>DCA<span>Pedia</span></h1>
             </a>
             <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
                     <i data-lucide="moon" id="theme-icon"></i>
                 </button>
                 <a href="https://github.com" target="_blank" class="github-link">
@@ -80,6 +81,27 @@
             return diffDays <= 7;
         }
 
+        function updateThemeUI() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+                if (window.lucide) lucide.createIcons();
+            }
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            if (newTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', newTheme);
+            updateThemeUI();
+        });
+
         function renderFiles(filter = '') {
             const fileList = document.getElementById('file-list');
             const filteredFiles = currentFiles.filter(file => 
@@ -111,11 +133,12 @@
                     </div>
                 </a>
             `).join('');
-
             lucide.createIcons();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            updateThemeUI();
+            
             const path = window.location.pathname;
             const filename = path.split('/').pop().replace('.html', '');
             const program = pdfData[filename];
@@ -134,30 +157,9 @@
 
             renderFiles();
 
-            // Search logic
             document.getElementById('file-search').addEventListener('input', (e) => {
                 renderFiles(e.target.value);
             });
-
-            // Theme Toggle
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            
-            function updateThemeIcon() {
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-                lucide.createIcons();
-            }
-
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeIcon();
-            });
-
-            updateThemeIcon();
         });
     </script>
 </body>

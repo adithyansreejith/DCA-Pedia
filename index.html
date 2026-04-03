@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // Theme initialization
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        (function() {
+            const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
     </script>
 </head>
 <body>
@@ -24,7 +24,7 @@
                 <h1>DCA<span>Pedia</span></h1>
             </div>
             <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
                     <i data-lucide="moon" id="theme-icon"></i>
                 </button>
                 <a href="https://github.com" target="_blank" class="github-link">
@@ -95,43 +95,45 @@
     </footer>
 
     <script>
-        lucide.createIcons();
-
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        
-        function updateThemeIcon() {
+        function updateThemeUI() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-            lucide.createIcons();
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+                if (window.lucide) lucide.createIcons();
+            }
         }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            
+            if (newTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            
             localStorage.setItem('theme', newTheme);
-            updateThemeIcon();
+            updateThemeUI();
         });
 
-        updateThemeIcon();
+        // Initialize UI
+        updateThemeUI();
+        lucide.createIcons();
 
         // Search Logic
         const searchInput = document.getElementById('program-search');
-        const cards = document.querySelectorAll('.card');
-
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            cards.forEach(card => {
-                const title = card.getAttribute('data-title');
-                if (title.includes(term)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+        if (searchInput) {
+            const cards = document.querySelectorAll('.card');
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                cards.forEach(card => {
+                    const title = card.getAttribute('data-title');
+                    card.style.display = title.includes(term) ? 'flex' : 'none';
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
