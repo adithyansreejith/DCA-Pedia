@@ -5,8 +5,23 @@ const pdfData = {
         "folder": "Msc AI-DS",
         "files": [
             {
-                "name": "Syllabus.pdf",
-                "size": "24.0 B",
+                "name": "Algorithms.pdf",
+                "size": "2.93 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "DataStructures.pdf",
+                "size": "16.69 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "DBMS.pdf",
+                "size": "13.74 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "OperatingSystems.pdf",
+                "size": "14.52 MB",
                 "date": "2026-04-03"
             }
         ]
@@ -15,24 +30,12 @@ const pdfData = {
         "title": "MCA Resources",
         "description": "Master of Computer Applications",
         "folder": "MCA",
-        "files": [
-            {
-                "name": "Syllabus.pdf",
-                "size": "24.0 B",
-                "date": "2026-04-03"
-            }
-        ]
+        "files": []
     },
     "integrated-mca": {
         "title": "Integrated MCA Resources",
         "description": "Integrated Master of Computer Applications",
         "folder": "Integrated MCA",
-        "files": [
-            {
-                "name": "Syllabus.pdf",
-                "size": "24.0 B",
-                "date": "2026-04-03"
-            }
-        ]
+        "files": []
     }
 };
