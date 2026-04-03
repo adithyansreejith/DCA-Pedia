@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Theme initialization
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -17,11 +23,14 @@
                 <i data-lucide="folder-search" class="logo-icon"></i>
                 <h1>DCA<span>Pedia</span></h1>
             </div>
-            <nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
                 <a href="https://github.com" target="_blank" class="github-link">
                     <i data-lucide="github"></i>
                 </a>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -29,14 +38,19 @@
         <section class="hero">
             <div class="container">
                 <h2>Welcome to DCA-Pedia</h2>
-                <p>An initiative by SFI DCA Sub Committee CUSAT. Access and download academic PDFs, notes, and study materials for your program.</p>
+                <p>Access and download academic PDFs, notes, and study materials for your program.</p>
+                
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="program-search" class="search-input" placeholder="Search for programs (e.g., MCA, AI/DS)...">
+                </div>
             </div>
         </section>
 
         <section class="programs">
-            <div class="container grid">
+            <div class="container grid" id="program-grid">
                 <!-- Program Card: MSc AI/DS -->
-                <a href="msc-ai-ds.html" class="card">
+                <a href="msc-ai-ds.html" class="card" data-title="msc ai/ds artificial intelligence data science">
                     <div class="card-icon blue">
                         <i data-lucide="brain-circuit"></i>
                     </div>
@@ -48,7 +62,7 @@
                 </a>
 
                 <!-- Program Card: MCA -->
-                <a href="mca.html" class="card">
+                <a href="mca.html" class="card" data-title="mca master of computer applications">
                     <div class="card-icon purple">
                         <i data-lucide="code"></i>
                     </div>
@@ -60,7 +74,7 @@
                 </a>
 
                 <!-- Program Card: Integrated MCA -->
-                <a href="integrated-mca.html" class="card">
+                <a href="integrated-mca.html" class="card" data-title="integrated mca master of computer applications">
                     <div class="card-icon orange">
                         <i data-lucide="graduation-cap"></i>
                     </div>
@@ -82,6 +96,42 @@
 
     <script>
         lucide.createIcons();
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+            lucide.createIcons();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+
+        updateThemeIcon();
+
+        // Search Logic
+        const searchInput = document.getElementById('program-search');
+        const cards = document.querySelectorAll('.card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title');
+                if (title.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>
