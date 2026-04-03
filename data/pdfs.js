@@ -42,6 +42,47 @@ const pdfData = {
         "title": "Integrated MCA Resources",
         "description": "Integrated Master of Computer Applications",
         "folder": "Integrated MCA",
-        "files": []
+        "files": [
+            {
+                "name": "PYQ2024-1.pdf",
+                "size": "1.23 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2024-2.pdf",
+                "size": "1.1 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2024-3.pdf",
+                "size": "1.13 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2024-4.pdf",
+                "size": "1.28 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2025-1.pdf",
+                "size": "1.12 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2025-2.pdf",
+                "size": "1.12 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2025-3.pdf",
+                "size": "1.14 MB",
+                "date": "2026-04-03"
+            },
+            {
+                "name": "PYQ2025-4.pdf",
+                "size": "1.23 MB",
+                "date": "2026-04-03"
+            }
+        ]
     }
 };
