@@ -1,0 +1,258 @@
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-main: #f8fafc;
+    --text-main: #1e293b;
+    --text-light: #64748b;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --icon-blue-bg: #eff6ff;
+    --icon-blue: #3b82f6;
+    --icon-purple-bg: #f5f3ff;
+    --icon-purple: #8b5cf6;
+    --icon-orange-bg: #fff7ed;
+    --icon-orange: #f97316;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid var(--card-border);
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--primary);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.logo h1 span {
+    color: var(--primary);
+}
+
+.hero {
+    padding: 4rem 0 3rem;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em;
+}
+
+.hero p {
+    color: var(--text-light);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.programs {
+    padding-bottom: 5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.card-icon.blue { background-color: var(--icon-blue-bg); color: var(--icon-blue); }
+.card-icon.purple { background-color: var(--icon-purple-bg); color: var(--icon-purple); }
+.card-icon.orange { background-color: var(--icon-orange-bg); color: var(--icon-orange); }
+
+.card-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.view-all {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+.view-all i {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s;
+}
+
+.card:hover .view-all i {
+    transform: translateX(4px);
+}
+
+/* Program Page Styles */
+.page-header {
+    padding: 3rem 0;
+    background: #fff;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.file-list-container {
+    padding: 3rem 0;
+}
+
+.file-list {
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-item:hover {
+    background-color: var(--bg-main);
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    color: #ef4444; /* PDF red */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.25rem;
+}
+
+.file-info {
+    flex-grow: 1;
+}
+
+.file-name {
+    font-weight: 500;
+    display: block;
+}
+
+.file-meta {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.download-icon {
+    color: var(--text-light);
+}
+
+footer {
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--card-border);
+    margin-top: auto;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .hero h2 {
+        font-size: 1.85rem;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
