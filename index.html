@@ -149,12 +149,56 @@
         const searchInput = document.getElementById('program-search');
         if (searchInput) {
             const cards = document.querySelectorAll('.card');
+            const programGrid = document.getElementById('program-grid');
+            
+            // Create no-results container
+            const noResults = document.createElement('div');
+            noResults.id = 'no-results';
+            noResults.style.display = 'none';
+            noResults.style.gridColumn = '1 / -1';
+            noResults.style.textAlign = 'center';
+            noResults.style.padding = '3rem 0';
+            noResults.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">No matches found</h3>
+                <p id="witty-quote" style="color: var(--text-light); font-style: italic;"></p>
+            `;
+            programGrid.appendChild(noResults);
+
+            const wittyQuotes = [
+                "Even Google couldn't find this... and they're watching you.",
+                "404: Brain cell not found.",
+                "This search is as empty as my bank account.",
+                "No results. Time to go touch some grass?",
+                "Nothing found. Maybe it's hiding in the dark mode?",
+                "Search result: Vacuum (literally nothing)."
+            ];
+
             searchInput.addEventListener('input', (e) => {
                 const term = e.target.value.toLowerCase();
+                
+                // SFI Mode Easter Egg
+                if (term === 'sfi') {
+                    document.documentElement.classList.add('sfi-mode');
+                }
+
+                let visibleCount = 0;
                 cards.forEach(card => {
                     const title = card.getAttribute('data-title');
-                    card.style.display = title.includes(term) ? 'flex' : 'none';
+                    if (title.includes(term)) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
+
+                if (visibleCount === 0) {
+                    noResults.style.display = 'block';
+                    document.getElementById('witty-quote').textContent = wittyQuotes[Math.floor(Math.random() * wittyQuotes.length)];
+                } else {
+                    noResults.style.display = 'none';
+                }
             });
         }
     </script>

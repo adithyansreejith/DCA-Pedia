@@ -424,3 +424,54 @@ body.disco-mode .logo-icon,
 body.disco-mode .theme-toggle i {
     filter: invert(1) hue-rotate(90deg);
 }
+
+/* SFI Mode */
+html.sfi-mode {
+    --primary: #ffffff !important;
+    --primary-hover: #f3f4f6 !important;
+    --accent: #ffffff !important;
+    --bg-main: #dc2626 !important;
+    --bg-alt: #b91c1c !important;
+    --text-main: #ffffff !important;
+    --text-light: #fca5a5 !important;
+    --card-bg: #b91c1c !important;
+    --card-border: #f87171 !important;
+    --icon-red-bg: #ffffff !important;
+    --icon-red: #dc2626 !important;
+    --icon-yellow-bg: #ffffff !important;
+    --icon-yellow: #dc2626 !important;
+    --icon-orange-bg: #ffffff !important;
+    --icon-orange: #dc2626 !important;
+}
+
+html.sfi-mode body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+}
+
+html.sfi-mode .logo h1 span,
+html.sfi-mode .view-all,
+html.sfi-mode .view-all i {
+    color: #ffffff !important;
+}
+
+html.sfi-mode .card-icon {
+    background-color: #ffffff !important;
+    color: #dc2626 !important;
+}
+
+html.sfi-mode .search-input {
+    background-color: #ffffff !important;
+    color: #dc2626 !important;
+    border-color: #ffffff !important;
+}
+
+html.sfi-mode .search-icon {
+    color: #dc2626 !important;
+}
+
+html.sfi-mode .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
