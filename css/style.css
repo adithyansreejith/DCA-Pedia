@@ -389,3 +389,38 @@ footer b {
         grid-template-columns: 1fr;
     }
 }
+
+/* Disco Mode */
+@keyframes disco-bg {
+    0% { background-color: #ff0000; }
+    20% { background-color: #00ff00; }
+    40% { background-color: #0000ff; }
+    60% { background-color: #ffff00; }
+    80% { background-color: #ff00ff; }
+    100% { background-color: #00ffff; }
+}
+
+@keyframes disco-text {
+    0% { color: #ffffff; }
+    20% { color: #000000; }
+    40% { color: #ffffff; }
+    60% { color: #000000; }
+    80% { color: #ffffff; }
+    100% { color: #000000; }
+}
+
+body.disco-mode {
+    animation: disco-bg 0.5s infinite !important;
+}
+
+body.disco-mode * {
+    animation: disco-text 0.5s infinite !important;
+    background-color: transparent !important;
+    border-color: currentColor !important;
+}
+
+body.disco-mode img, 
+body.disco-mode .logo-icon,
+body.disco-mode .theme-toggle i {
+    filter: invert(1) hue-rotate(90deg);
+}

@@ -104,7 +104,30 @@
             }
         }
 
+        let clickCount = 0;
+        let lastClickTime = 0;
+
         document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.body.classList.contains('disco-mode')) {
+                document.body.classList.remove('disco-mode');
+                clickCount = 0;
+                return;
+            }
+
+            const now = Date.now();
+            if (now - lastClickTime < 500) {
+                clickCount++;
+            } else {
+                clickCount = 1;
+            }
+            lastClickTime = now;
+
+            if (clickCount >= 5) {
+                document.body.classList.add('disco-mode');
+                clickCount = 0;
+                return;
+            }
+
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             const newTheme = isDark ? 'light' : 'dark';
             
