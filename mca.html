@@ -127,6 +127,15 @@
             updateThemeUI();
         });
 
+        const wittyQuotes = [
+            "Even Google couldn't find this... and they're watching you.",
+            "404: Brain cell not found.",
+            "This search is as empty as my bank account.",
+            "No results. Time to go touch some grass?",
+            "Nothing found. Maybe it's hiding in the dark mode?",
+            "Search result: Vacuum (literally nothing)."
+        ];
+
         function renderFiles(filter = '') {
             const fileList = document.getElementById('file-list');
             const filteredFiles = currentFiles.filter(file => 
@@ -136,7 +145,8 @@
             if (filteredFiles.length === 0) {
                 fileList.innerHTML = '';
                 document.getElementById('no-files').style.display = 'block';
-                document.getElementById('no-files').querySelector('p').textContent = filter ? `No matches found for "${filter}"` : 'No PDFs found in this section yet.';
+                const wittyQuote = wittyQuotes[Math.floor(Math.random() * wittyQuotes.length)];
+                document.getElementById('no-files').querySelector('p').textContent = filter ? wittyQuote : 'No PDFs found in this section yet.';
                 return;
             }
 
@@ -183,7 +193,11 @@
             renderFiles();
 
             document.getElementById('file-search').addEventListener('input', (e) => {
-                renderFiles(e.target.value);
+                const term = e.target.value.toLowerCase();
+                if (term === 'sfi') {
+                    document.documentElement.classList.add('sfi-mode');
+                }
+                renderFiles(term);
             });
         });
     </script>
