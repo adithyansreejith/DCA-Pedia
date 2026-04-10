@@ -42,6 +42,11 @@ const pdfData = {
         "folder": "MCA",
         "files": [
             {
+                "name": "CAT-MCA-APTITUDE1.pdf",
+                "size": "23.38 KB",
+                "date": "2026-04-10"
+            },
+            {
                 "name": "Maths_Basics.pdf",
                 "size": "3.02 MB",
                 "date": "2026-04-03"
@@ -68,6 +73,11 @@ const pdfData = {
         "description": "Integrated Master of Computer Applications",
         "folder": "Integrated MCA",
         "files": [
+            {
+                "name": "Maths-1.pdf",
+                "size": "14.1 KB",
+                "date": "2026-04-10"
+            },
             {
                 "name": "PYQ2024-1.pdf",
                 "size": "1.23 MB",
