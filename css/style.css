@@ -122,6 +122,18 @@ header .container {
     color: var(--primary);
 }
 
+.whatsapp-link {
+    color: var(--text-light);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.whatsapp-link:hover {
+    color: #25d366; /* WhatsApp Green */
+}
+
 .hero {
     padding: 5rem 0 4rem;
     text-align: center;
