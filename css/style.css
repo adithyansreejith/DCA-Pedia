@@ -111,27 +111,28 @@ header .container {
     color: var(--primary);
 }
 
-.github-link {
+.github-link, .whatsapp-link, .instagram-link {
     color: var(--text-light);
     transition: var(--transition);
     display: flex;
     align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .github-link:hover {
+    background-color: var(--icon-red-bg);
     color: var(--primary);
 }
 
-.whatsapp-link {
-    color: var(--text-light);
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    position: relative;
+.whatsapp-link:hover {
+    background-color: #dcf8c6; /* Light WhatsApp Green */
+    color: #25d366;
 }
 
-.whatsapp-link:hover {
-    color: #25d366; /* WhatsApp Green */
+.instagram-link:hover {
+    background-color: #fce4ec; /* Light Pink */
+    color: #e1306c; /* Insta Pink */
 }
 
 .hero {
