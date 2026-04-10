@@ -43,7 +43,7 @@ const pdfData = {
         "files": [
             {
                 "name": "CAT-MCA-APTITUDE1.pdf",
-                "size": "23.38 KB",
+                "size": "23.68 KB",
                 "date": "2026-04-10"
             },
             {
@@ -75,7 +75,7 @@ const pdfData = {
         "files": [
             {
                 "name": "Maths-1.pdf",
-                "size": "14.1 KB",
+                "size": "14.32 KB",
                 "date": "2026-04-10"
             },
             {

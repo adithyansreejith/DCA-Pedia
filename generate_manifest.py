@@ -35,22 +35,53 @@ def get_file_size(path):
     s = round(size_bytes / p, 2)
     return f"{s} {size_name[i]}"
 
+def load_existing_manifest():
+    if not os.path.exists(DATA_FILE):
+        return {}
+    try:
+        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            content = f.read()
+            # Remove "const pdfData = " and the trailing ";"
+            if content.startswith("const pdfData = "):
+                content = content[len("const pdfData = "):].strip()
+            if content.endswith(";"):
+                content = content[:-1].strip()
+            return json.loads(content)
+    except Exception as e:
+        print(f"Warning: Could not load existing manifest: {e}")
+        return {}
+
 def generate_manifest():
     manifest = {}
+    existing_manifest = load_existing_manifest()
     
     for key, config in programs_config.items():
         folder_path = os.path.join(PDF_ROOT, config["folder"])
         files = []
+        
+        # Create a lookup for existing file dates
+        existing_files = {}
+        if key in existing_manifest:
+            for f in existing_manifest[key].get("files", []):
+                existing_files[f["name"]] = f["date"]
         
         if os.path.exists(folder_path):
             for filename in os.listdir(folder_path):
                 if filename.lower().endswith('.pdf'):
                     full_path = os.path.join(folder_path, filename)
                     stats = os.stat(full_path)
+                    
+                    # Use existing date if file was already in manifest, 
+                    # otherwise use current modification date
+                    if filename in existing_files:
+                        date = existing_files[filename]
+                    else:
+                        date = datetime.fromtimestamp(stats.st_mtime).strftime('%Y-%m-%d')
+                        
                     files.append({
                         "name": filename,
                         "size": get_file_size(full_path),
-                        "date": datetime.fromtimestamp(stats.st_mtime).strftime('%Y-%m-%d')
+                        "date": date
                     })
         
         manifest[key] = {
