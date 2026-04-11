@@ -77,6 +77,16 @@ const pdfData = {
                 "date": "2026-04-03"
             },
             {
+                "name": "PYQ-21.pdf",
+                "size": "1.37 MB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "PYQ-22.pdf",
+                "size": "942.08 KB",
+                "date": "2026-04-11"
+            },
+            {
                 "name": "PYQ-23.pdf",
                 "size": "1.04 MB",
                 "date": "2026-04-03"
