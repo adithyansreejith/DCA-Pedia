@@ -100,6 +100,11 @@ const pdfData = {
                 "name": "PYQ-25.pdf",
                 "size": "941.65 KB",
                 "date": "2026-04-03"
+            },
+            {
+                "name": "Quantitative-Aptitude.pdf",
+                "size": "4.27 MB",
+                "date": "2026-04-11"
             }
         ]
     },
