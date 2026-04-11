@@ -10,6 +10,26 @@ const pdfData = {
                 "date": "2026-04-03"
             },
             {
+                "name": "Cheatsheet C++.pdf",
+                "size": "232.37 KB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "Cheatsheet C.pdf",
+                "size": "200.54 KB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "Cheatsheet DBMS.pdf",
+                "size": "89.85 KB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "Cheatsheet OS.pdf",
+                "size": "129.5 KB",
+                "date": "2026-04-11"
+            },
+            {
                 "name": "DataStructures-QnBank.pdf",
                 "size": "16.69 MB",
                 "date": "2026-04-03"
@@ -38,26 +58,6 @@ const pdfData = {
                 "name": "PYQ-25.pdf",
                 "size": "972.18 KB",
                 "date": "2026-04-03"
-            },
-            {
-                "name": "DBMS Cheatsheet.pdf",
-                "size": "89.85 KB",
-                "date": "2026-04-11"
-            },
-            {
-                "name": "C Language Cheatsheet.pdf",
-                "size": "200.54 KB",
-                "date": "2026-04-11"
-            },
-            {
-                "name": "Operating Systems Cheatsheet.pdf",
-                "size": "129.5 KB",
-                "date": "2026-04-11"
-            },
-            {
-                "name": "C++ Cheatsheet.pdf",
-                "size": "232.37 KB",
-                "date": "2026-04-11"
             }
         ]
     },
