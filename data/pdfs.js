@@ -20,6 +20,11 @@ const pdfData = {
                 "date": "2026-04-03"
             },
             {
+                "name": "DSA cheatsheet.pdf",
+                "size": "85.64 KB",
+                "date": "2026-04-11"
+            },
+            {
                 "name": "OperatingSystems-QnBank.pdf",
                 "size": "14.52 MB",
                 "date": "2026-04-03"
@@ -33,6 +38,26 @@ const pdfData = {
                 "name": "PYQ-25.pdf",
                 "size": "972.18 KB",
                 "date": "2026-04-03"
+            },
+            {
+                "name": "\ud83d\udcd8 DBMS Cheatsheet.pdf",
+                "size": "89.85 KB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "\ud83d\udd27 C Language Cheatsheet.pdf",
+                "size": "200.54 KB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "\ud83d\udda5\ufe0f Operating Systems Cheatsheet.pdf",
+                "size": "129.5 KB",
+                "date": "2026-04-11"
+            },
+            {
+                "name": "\ud83d\ude80 C++ Cheatsheet.pdf",
+                "size": "232.37 KB",
+                "date": "2026-04-11"
             }
         ]
     },
