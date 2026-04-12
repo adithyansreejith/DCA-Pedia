@@ -82,6 +82,11 @@ const pdfData = {
                 "date": "2026-04-12"
             },
             {
+                "name": "Maths-QuestionBank.pdf",
+                "size": "4.2 MB",
+                "date": "2026-04-12"
+            },
+            {
                 "name": "Maths_Basics.pdf",
                 "size": "3.02 MB",
                 "date": "2026-04-03"
