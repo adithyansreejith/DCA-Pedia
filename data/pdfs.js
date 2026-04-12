@@ -77,6 +77,11 @@ const pdfData = {
                 "date": "2026-04-10"
             },
             {
+                "name": "Competitive-Reasoning-Question bank.pdf",
+                "size": "153.13 KB",
+                "date": "2026-04-12"
+            },
+            {
                 "name": "Maths_Basics.pdf",
                 "size": "3.02 MB",
                 "date": "2026-04-03"
