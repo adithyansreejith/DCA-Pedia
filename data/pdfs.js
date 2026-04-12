@@ -1,6 +1,7 @@
 const pdfData = {
     "msc-ai-ds": {
         "title": "MSc AI/DS Resources",
+        "testCode": "502",
         "description": "Master of Science in Artificial Intelligence & Data Science",
         "folder": "Msc AI-DS",
         "files": [
@@ -68,6 +69,7 @@ const pdfData = {
     },
     "mca": {
         "title": "MCA Resources",
+        "testCode": "501",
         "description": "Master of Computer Applications",
         "folder": "MCA",
         "files": [
@@ -125,6 +127,7 @@ const pdfData = {
     },
     "integrated-mca": {
         "title": "Integrated MCA Resources",
+        "testCode": "101",
         "description": "Integrated Master of Computer Applications",
         "folder": "Integrated MCA",
         "files": [

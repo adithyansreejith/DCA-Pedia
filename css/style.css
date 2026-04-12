@@ -234,6 +234,13 @@ header .container {
     margin-bottom: 0.5rem;
 }
 
+.card-content h4 {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
 .card-content p {
     color: var(--text-light);
     font-size: 0.95rem;

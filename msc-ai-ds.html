@@ -178,6 +178,15 @@
             }
 
             document.getElementById('program-title').textContent = program.title;
+            if (program.testCode) {
+                const codeElem = document.createElement('h3');
+                codeElem.textContent = `Test Code: ${program.testCode}`;
+                codeElem.style.color = 'var(--primary)';
+                codeElem.style.fontSize = '1.1rem';
+                codeElem.style.marginBottom = '0.5rem';
+                codeElem.style.fontWeight = '600';
+                document.getElementById('program-title').after(codeElem);
+            }
             document.getElementById('program-desc').textContent = program.description;
             document.title = `${program.title} | DCA-Pedia`;
             window.programFolder = program.folder;
