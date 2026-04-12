@@ -129,6 +129,11 @@ const pdfData = {
                 "date": "2026-04-10"
             },
             {
+                "name": "NCERT-Questions-PhyChemMath.pdf",
+                "size": "1.37 MB",
+                "date": "2026-04-12"
+            },
+            {
                 "name": "PYQ2024-1.pdf",
                 "size": "1.23 MB",
                 "date": "2026-04-03"
