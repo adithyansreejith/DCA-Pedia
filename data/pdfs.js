@@ -83,7 +83,7 @@ const pdfData = {
             },
             {
                 "name": "Maths-QuestionBank.pdf",
-                "size": "4.2 MB",
+                "size": "4.17 MB",
                 "date": "2026-04-12"
             },
             {
