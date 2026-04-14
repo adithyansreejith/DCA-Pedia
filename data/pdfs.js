@@ -10,6 +10,16 @@ const pdfData = {
                 "date": "2026-04-03"
             },
             {
+                "name": "C-plus-plus-programming.pdf",
+                "size": "378.77 KB",
+                "date": "2026-04-14"
+            },
+            {
+                "name": "C-program.pdf",
+                "size": "317.9 KB",
+                "date": "2026-04-14"
+            },
+            {
                 "name": "Cheatsheet C++.pdf",
                 "size": "232.37 KB",
                 "date": "2026-04-11"
@@ -92,6 +102,11 @@ const pdfData = {
                 "date": "2026-04-03"
             },
             {
+                "name": "Non-Verb-Reasoning.pdf",
+                "size": "25.19 MB",
+                "date": "2026-04-14"
+            },
+            {
                 "name": "PYQ-21.pdf",
                 "size": "1.37 MB",
                 "date": "2026-04-11"
@@ -150,7 +165,7 @@ const pdfData = {
             },
             {
                 "name": "NCERT-Questions-PhyChemMath.pdf",
-                "size": "1.37 MB",
+                "size": "1.38 MB",
                 "date": "2026-04-12"
             },
             {
