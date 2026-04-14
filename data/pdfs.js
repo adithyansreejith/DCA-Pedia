@@ -1,7 +1,6 @@
 const pdfData = {
     "msc-ai-ds": {
         "title": "MSc AI/DS Resources",
-        "testCode": "502",
         "description": "Master of Science in Artificial Intelligence & Data Science",
         "folder": "Msc AI-DS",
         "files": [
@@ -69,7 +68,6 @@ const pdfData = {
     },
     "mca": {
         "title": "MCA Resources",
-        "testCode": "501",
         "description": "Master of Computer Applications",
         "folder": "MCA",
         "files": [
@@ -127,10 +125,24 @@ const pdfData = {
     },
     "integrated-mca": {
         "title": "Integrated MCA Resources",
-        "testCode": "101",
         "description": "Integrated Master of Computer Applications",
         "folder": "Integrated MCA",
         "files": [
+            {
+                "name": "Guide - CHEMISTRY.pdf",
+                "size": "45.33 MB",
+                "date": "2026-04-14"
+            },
+            {
+                "name": "Guide - MATHS.pdf",
+                "size": "98.2 MB",
+                "date": "2026-04-14"
+            },
+            {
+                "name": "Guide - PHYSICS.pdf",
+                "size": "77.1 MB",
+                "date": "2026-04-14"
+            },
             {
                 "name": "Maths-1.pdf",
                 "size": "14.32 KB",
