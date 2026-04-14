@@ -82,6 +82,11 @@ const pdfData = {
         "folder": "MCA",
         "files": [
             {
+                "name": "Arithmetic-ability.pdf",
+                "size": "5.08 MB",
+                "date": "2026-04-14"
+            },
+            {
                 "name": "CAT-MCA-APTITUDE1.pdf",
                 "size": "23.68 KB",
                 "date": "2026-04-10"
